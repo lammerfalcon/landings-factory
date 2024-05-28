@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
+const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
 
 useSeoMeta({
   title: page.value.title,
@@ -68,7 +68,7 @@ function onSubmit() {
         alt="Hero image"
         class="w-full h-full object-cover"
       />
-      <!--      <ImagePlaceholder/>-->
+      <!--      <ImagePlaceholder/> -->
 
       <ULandingLogos
         v-if="page.logos"
@@ -134,44 +134,45 @@ function onSubmit() {
           :key="index"
           class="break-inside-avoid"
         >
-          <ULandingTestimonial v-bind="testimonial"/>
+          <ULandingTestimonial v-bind="testimonial" />
         </div>
       </UPageColumns>
     </ULandingSection>
-    <ULandingSection  id="CTA"  class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 h-full">
+    <ULandingSection
+      id="CTA"
+      class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 h-full"
+    >
       <ULandingCTA
         v-bind="page.cta"
         :card="false"
       >
         <template #links>
-          <form
-            class="mx-auto"
-            @submit.prevent="onSubmit">
-            <UFormGroup
-              class="min-w-96"
-              :ui="{ container: 'mt-3' }"
+          <UBadge
+            v-if="page.hero.headline"
+            variant="subtle"
+            size="lg"
+            class="relative rounded-full font-semibold"
+          >
+            <NuxtLink
+              :to="page.hero.headline.to"
+              target="_blank"
+              class="focus:outline-none"
+              tabindex="-1"
             >
-              <UInput
-                v-model="email"
-                type="email"
-                placeholder="Введите email"
-                :ui="{ icon: { trailing: { pointer: '' } } }"
-                required
-                size="xl"
-                autocomplete="off"
-                class=" max-w-sm w-full"
-              >
-                <template #trailing>
-                  <UButton
-                    type="submit"
-                    size="xs"
-                    :label="loading ? 'Subscribing' : 'Subscribe'"
-                    :loading="loading"
-                  />
-                </template>
-              </UInput>
-            </UFormGroup>
-          </form>
+              <span
+                class="absolute inset-0"
+                aria-hidden="true"
+              />
+            </NuxtLink>
+
+            {{ page.hero.headline.label }}
+
+            <UIcon
+              v-if="page.hero.headline.icon"
+              :name="page.hero.headline.icon"
+              class="ml-1 w-4 h-4 pointer-events-none"
+            />
+          </UBadge>
         </template>
       </ULandingCTA>
     </ULandingSection>

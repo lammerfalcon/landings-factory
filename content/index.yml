@@ -5,14 +5,7 @@ hero:
   description: Интегрируйте и управляйте своими товарами прямо из Telegram без сложностей.
   image:
     - /hero.png
-    - /hero2.png
-  links:
-    - label: Попробовать бота
-      icon: i-simple-icons-telegram
-      size: xl
-      color: blue
-      to: https://t.me/BreadOfMySoulBot
-      target: _blank
+    - /preview.png
 
 #logos:
 #  title: Trusted by the world's best
@@ -27,24 +20,27 @@ features:
   title: Почему наше мини-приложение?
   description: Наше мини-приложение позволяет вам легко выставлять товары, управлять заказами и общаться с клиентами, не покидая Telegram. Всё, что нужно для успешной торговли, теперь в одном удобном приложении!
   items:
-    - title: Easy to use
-      description: Id laborum laboris duis nostrud excepteur ut velit nulla magna Lorem proident non.
-      icon: i-heroicons-cog
-    - title: Reliable
-      description: Magna Lorem ex cillum fugiat ad enim aute irure sit duis minim.
-      icon: i-heroicons-check
-    - title: Secure
-      description: Proident nostrud excepteur sint ut culpa consectetur aute adipisicing non anim ullamco.
-      icon: i-heroicons-lock-closed
-    - title: Fast
-      description: Qui reprehenderit nostrud dolore nisi ad fugiat labore eiusmod sint aliquip nisi voluptate.
+    - title: Быстрый запуск
+      description: Бот уже готов к работе, вам нужно только добавить его в свой канал или группу и начать продавать.
       icon: i-heroicons-rocket-launch
-    - title: Affordable
-      description: Reprehenderit fugiat elit in do ipsum ut pariatur.
-      icon: i-heroicons-currency-dollar
-    - title: Scalable
-      description: Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.
+    - title:  Надежность
+      description: Наше приложение обеспечивает стабильную и надежную работу, гарантируя бесперебойные продажи.
+      icon: i-heroicons-cog
+    - title: Аналитика и отчеты
+      description: Получайте подробные отчеты о продажах и поведении клиентов для принятия обоснованных решений.
       icon: i-heroicons-chart-bar
+    - title: Доступная цена
+      description: Высокое качество по доступной цене. Наше приложение подходит для любого бизнеса.
+      icon: i-heroicons-gift
+    - title: Поддержка
+      description: Наша команда всегда готова помочь вам с настройкой и ответить на ваши вопросы.
+      icon: i-heroicons-check
+
+
+    - title: Масштабируемость
+      description: Автоматизируйте процессы и увеличивайте количество товаров и заказов без дополнительных затрат.
+      icon: i-heroicons-currency-dollar
+
 pricing:
   headline: Тарифы
   title: Выберите подходящий тариф
@@ -140,11 +136,16 @@ pricing:
 #          src: https://i.pravatar.cc/120?img=9
 #          loading: lazy
 cta:
-  title: Интересно? Подпишитесь на рассылку!
-  description: Проект находится в стадии разработки. Подпишитесь на рассылку, чтобы быть в курсе новостей и получить доступ к бета-версии.
+  title: Посмотрите, как это работает!
+  description: Пройдите путь покупателя от выбора товара до оформления заказа.
+
   links:
-    - label: Sign up for free
+    - label: Попробовать бота
+      icon: i-simple-icons-telegram
       size: xl
+      color: blue
+      to: https://t.me/BreadOfMySoulBot
+      target: _blank
 faq:
   title: Frequently asked questions
   description: Culpa consectetur dolor pariatur commodo aliqua amet tempor nisi enim deserunt elit cillum.

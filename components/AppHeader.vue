@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
-const route=useRoute()
+const route = useRoute()
 const links = computed(() => [{
   label: 'Возможнсти',
   to: '#features',
@@ -19,7 +19,7 @@ const links = computed(() => [{
 //   icon: 'i-heroicons-academic-cap',
 //   active: route.hash.includes('CTA')
 // },
-  {
+{
   label: 'FAQ',
   to: '#faq',
   icon: 'i-heroicons-question-mark-circle',
@@ -49,12 +49,12 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
 
     <template #right>
       <UButton
-        @click="navigateTo('/#CTA')"
-        label="Подписаться на рассылку"
+        label="Демонстрация сервиса"
         color="white"
         variant="ghost"
         trailing-icon="i-heroicons-arrow-right-20-solid"
         class="hidden lg:flex"
+        @click="navigateTo('/#CTA')"
       />
     </template>
 
