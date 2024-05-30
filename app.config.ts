@@ -1,7 +1,7 @@
 export default defineAppConfig({
   ui: {
-    primary: 'shakespeare',
-    gray: 'shakespeare',
+    primary: 'river-bed',
+    gray: 'river-bed',
     variables: {
       light: {
         background: 'var(--color-gray-50)'

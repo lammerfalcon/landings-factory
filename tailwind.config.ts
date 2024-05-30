@@ -10,6 +10,7 @@ export default <Partial<Config>>{
     './app.vue',
     './error.vue'
   ],
+
   theme: {
     extend: {
       fontFamily: {

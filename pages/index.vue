@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { type InferType, object, string } from 'yup'
+
 const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
 
 useSeoMeta({
@@ -8,17 +10,33 @@ useSeoMeta({
   ogDescription: page.value.description
 })
 const toast = useToast()
-
-const email = ref('')
 const loading = ref(false)
+const RequiredText = 'Поле обязательно для заполнения'
+const schema = object({
+  email: string().email('Введите корректный адрес эл. почты').required(RequiredText),
+  tgUsername: string().required(RequiredText),
+  feedback: string().required(RequiredText)
+})
+
+type Schema = InferType<typeof schema>
+
+const state = reactive({
+  email: undefined,
+  tgUsername: undefined,
+  feedback: undefined
+})
+
+const pricingPlansCount = computed(() => {
+  return page.value.pricing.plans.length
+})
 
 function onSubmit() {
   loading.value = true
 
   setTimeout(() => {
     toast.add({
-      title: 'Subscribed!',
-      description: 'You\'ve been subscribed to our newsletter.'
+      title: 'Отправили!',
+      description: 'Спасибо за ваше сообщение. Мы обязательно ответим на него.'
     })
 
     loading.value = false
@@ -102,14 +120,24 @@ function onSubmit() {
     </ULandingSection>
 
     <ULandingSection
+      id="CTA"
+      class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 h-full"
+    >
+      <ULandingCTA
+        v-bind="page.cta"
+        :card="false"
+      />
+    </ULandingSection>
+    <ULandingSection
       :title="page.pricing.title"
       :description="page.pricing.description"
       :headline="page.pricing.headline"
     >
       <UPricingGrid
         id="pricing"
-        compact
+
         class="scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
+        :class="[pricingPlansCount >= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2']"
       >
         <UPricingCard
           v-for="(plan, index) in page.pricing.plans"
@@ -139,63 +167,83 @@ function onSubmit() {
       </UPageColumns>
     </ULandingSection>
     <ULandingSection
-      id="CTA"
-      class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 h-full"
+      id="feedback"
+      headline="Обратная связь"
+      title="Есть вопросы? Напишите нам!"
+      description="Мы с радостью ответим на все ваши вопросы."
     >
-      <ULandingCTA
-        v-bind="page.cta"
-        :card="false"
-      >
-        <template #links>
-          <UBadge
-            v-if="page.hero.headline"
-            variant="subtle"
-            size="lg"
-            class="relative rounded-full font-semibold"
+      <template #links>
+        <div class="md:w-1/2">
+          <UForm
+            :schema="schema"
+            :state="state"
+            class="space-y-4 w-full"
+            @submit="onSubmit"
           >
-            <NuxtLink
-              :to="page.hero.headline.to"
-              target="_blank"
-              class="focus:outline-none"
-              tabindex="-1"
+            <div class="flex flex-col md:flex-row gap-4">
+              <UFormGroup
+                class="w-full"
+                label="Почта"
+                name="email"
+              >
+                <UInput
+
+                  v-model="state.email"
+                  size="xl"
+                />
+              </UFormGroup>
+
+              <UFormGroup
+                class="w-full"
+                label="Имя телеграм аккаунта"
+                name="tgUsername"
+              >
+                <UInput
+                  v-model="state.tgUsername"
+                  size="xl"
+                  type="text"
+                />
+              </UFormGroup>
+            </div>
+            <UFormGroup
+              label="Напишите нам всё, что считаете важным! Мы обязательно ответим на ваше сообщение."
+              name="feedback"
             >
-              <span
-                class="absolute inset-0"
-                aria-hidden="true"
+              <UTextarea
+                v-model="state.feedback"
+                size="xl"
+                type="text"
               />
-            </NuxtLink>
+            </UFormGroup>
 
-            {{ page.hero.headline.label }}
-
-            <UIcon
-              v-if="page.hero.headline.icon"
-              :name="page.hero.headline.icon"
-              class="ml-1 w-4 h-4 pointer-events-none"
-            />
-          </UBadge>
-        </template>
-      </ULandingCTA>
+            <UButton
+              type="submit"
+            >
+              Отправить 🚀
+            </UButton>
+          </UForm>
+        </div>
+      </template>
     </ULandingSection>
-
-    <ULandingSection
-      id="faq"
-      :title="page.faq.title"
-      :description="page.faq.description"
-      class="scroll-mt-[var(--header-height)]"
-    >
-      <ULandingFAQ
-        multiple
-        :items="page.faq.items"
-        :ui="{
-          button: {
-            label: 'font-semibold',
-            trailingIcon: {
-              base: 'w-6 h-6'
-            }
-          }
-        }"
-        class="max-w-4xl mx-auto"
-      />
-    </ULandingSection>
+    <!--    <ULandingSection -->
+    <!--      id="faq" -->
+    <!--      :title="page.faq.title" -->
+    <!--      :description="page.faq.description" -->
+    <!--      class="scroll-mt-[var(&#45;&#45;header-height)]" -->
+    <!--    > -->
+    <!--      <ULandingFAQ -->
+    <!--        multiple -->
+    <!--        :items="page.faq.items" -->
+    <!--        :ui="{ -->
+    <!--          button: { -->
+    <!--            label: 'font-semibold', -->
+    <!--            trailingIcon: { -->
+    <!--              base: 'w-6 h-6' -->
+    <!--            } -->
+    <!--          } -->
+    <!--        }" -->
+    <!--        class="max-w-4xl mx-auto" -->
+    <!--      /> -->
+    <!--    </ULandingSection> -->
   </div>
 </template>

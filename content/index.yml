@@ -46,27 +46,28 @@ pricing:
   title: Выберите подходящий тариф
   description: Можно начать с бесплатного тарифа и перейти на любой другой в любое время.
   plans:
-    - title: Базовый
-      description: Попробовать наш сервис
-      price: 300 руб.
-      discount: 0 руб.
-      align: top
-      button:
-        label: Попробовать
-        color: gray
-      features:
-        - До 10 товаров
-        - Неограниченное количество заказов
-        - Уведомления о заказах
-        - Поддержка
-        - Помощь с интеграцией в Telegram
+#    - title: Базовый
+#      description: Попробовать наш сервис
+#      price: 300 руб.
+#      discount: 0 руб.
+#      align: top
+#      button:
+#        label: Попробовать
+#        color: gray
+#      features:
+#        - До 10 товаров
+#        - Неограниченное количество заказов
+#        - Уведомления о заказах
+#        - Поддержка
+#        - Помощь с интеграцией в Telegram
     - title: Стандартный
       description: Вариант для небольшого бизнеса
-      price: 1000 руб.
-      highlight: true
-      scale: true
-      align: center
-      discount: 300 руб.
+      price: 3000₽
+      cycle: /мес
+#      highlight: true
+#      scale: true
+#      align: center
+      discount: 0₽
       button:
         label: Начать сейчас
       features:
@@ -80,8 +81,8 @@ pricing:
         - Запуск акций (в разработке)
     - title: Премиальный
       description: Индивидуальный подход к вашему бизнесу, разработка под ваши нужды
-      price: Обсуждается
-      align: top
+      price: Расчитывается индивидуально
+#      align: top
       button:
         label: Запросить консультацию
         color: gray
@@ -137,14 +138,20 @@ pricing:
 #          loading: lazy
 cta:
   title: Посмотрите, как это работает!
-  description: Пройдите путь покупателя от выбора товара до оформления заказа.
+  description: Пройдите путь покупателя от выбора товара до оформления заказа или создайте свой магазин и начните продавать.
 
   links:
-    - label: Попробовать бота
+    - label: Что видит покупатель
       icon: i-simple-icons-telegram
       size: xl
       color: blue
-      to: https://t.me/BreadOfMySoulBot
+      to: https://t.me/+V13BQCr_phZlM2Iy
+      target: _blank
+    - label: Создать свой магазин
+      size: xl
+      color: blue
+      variant: outline
+      to: https://bp-manager.ru/panel
       target: _blank
 faq:
   title: Frequently asked questions

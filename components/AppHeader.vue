@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
-const route = useRoute()
+
 const links = computed(() => [{
   label: 'Возможнсти',
   to: '#features',
@@ -20,11 +20,12 @@ const links = computed(() => [{
 //   active: route.hash.includes('CTA')
 // },
 {
-  label: 'FAQ',
-  to: '#faq',
+  label: 'Обратная связь',
+  to: '#feedback',
   icon: 'i-heroicons-question-mark-circle',
-  active: activeHeadings.value.includes('faq')
-}])
+  active: activeHeadings.value.includes('feedback') && !activeHeadings.value.includes('pricing')
+}
+])
 
 nuxtApp.hooks.hookOnce('page:finish', () => {
   updateHeadings([
@@ -32,9 +33,10 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
     document.querySelector('#pricing'),
     // document.querySelector('#testimonials'),
     document.querySelector('#CTA'),
-    document.querySelector('#faq')
+    document.querySelector('#feedback')
   ])
 })
+const { public: { adminUrl } } = useRuntimeConfig()
 </script>
 
 <template>
@@ -62,16 +64,20 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
       <UAsideLinks :links="links" />
 
       <UDivider class="my-6" />
-
       <UButton
-        label="Sign in"
-        color="white"
         block
-        class="mb-3"
+        label="Демонстрация сервиса"
+        color="white"
+        trailing-icon="i-heroicons-arrow-right-20-solid"
+        class="my-6"
+        @click="navigateTo('/#CTA')"
       />
       <UButton
-        label="Get started"
         block
+        label="Создать магазин"
+        color="blue"
+        trailing-icon="i-heroicons-arrow-right-20-solid"
+        @click="navigateTo(adminUrl, { external: true })"
       />
     </template>
   </UHeader>

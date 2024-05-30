@@ -12,6 +12,11 @@ export default defineNuxtConfig({
   typescript: {
     strict: false
   },
+  runtimeConfig: {
+    public: {
+      adminUrl: process.env.NUXT_ADMIN_URL
+    }
+  },
   eslint: {
     config: {
       stylistic: {
