@@ -20,20 +20,6 @@ const schema = object({
   text: string().required(RequiredText)
 })
 
-const carouselRef = ref()
-
-onMounted(() => {
-  setInterval(() => {
-    if (!carouselRef.value) return
-
-    if (carouselRef.value.page === carouselRef.value.pages) {
-      return carouselRef.value.select(0)
-    }
-
-    carouselRef.value.next()
-  }, 2000)
-})
-
 type Schema = InferType<typeof schema>
 
 const state = reactive({
@@ -133,7 +119,6 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         />
       </div>
       <UCarousel
-        ref="carouselRef"
         v-slot="{ item }"
         data-aos="fade-up"
         data-aos-anchor-placement="top-center"
@@ -201,7 +186,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     </ULandingSection>
     <ULandingSection
       data-aos="fade-up"
-      data-aos-anchor-placement="center-bottom"
+      data-aos-anchor-placement="top-bottom"
       :title="page.pricing.title"
       :description="page.pricing.description"
       :headline="page.pricing.headline"
@@ -242,7 +227,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       </UPageColumns>
     </ULandingSection>
     <ULandingSection
-      id="feedback"
+
       data-aos="fade-up"
       data-aos-anchor-placement="top-center"
       headline="Обратная связь"
@@ -252,6 +237,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       <template #links>
         <div class="md:w-1/2">
           <UForm
+            id="feedback"
             :schema="schema"
             :state="state"
             class="space-y-4 w-full"
