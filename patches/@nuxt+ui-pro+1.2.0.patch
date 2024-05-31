@@ -1,0 +1,40 @@
+diff --git a/node_modules/@nuxt/ui-pro/modules/pro/index.ts b/node_modules/@nuxt/ui-pro/modules/pro/index.ts
+index c8f62a6..4f8f4e9 100644
+--- a/node_modules/@nuxt/ui-pro/modules/pro/index.ts
++++ b/node_modules/@nuxt/ui-pro/modules/pro/index.ts
+@@ -88,20 +88,20 @@ export default defineNuxtModule({
+     /**
+      * License
+      */
+-    const theme = pkg.theme || { env: 'NUXT_UI_PRO_LICENSE', link: 'https://ui.nuxt.com/pro' }
+-    const key = process.env[theme.env] || (nuxt.options as any).uiPro?.license
+-    if (nuxt.options.dev || nuxt.options._prepare || nuxt.options.test) {
+-      if (nuxt.options.dev && !key) {
+-        consola.box(
+-          colors.greenBright('Nuxt UI Pro') + '\n\n' +
+-          `Missing \`${theme.env}\` env variable, please add it to your \`.env\`.` + '\n\n' +
+-          colors.blueBright(`Purchase Nuxt UI Pro at ${theme.link} to build your app in production.`)
+-        )
+-      }
+-      return
+-    }
+-    nuxt.hook('build:before', async () => {
+-      await validateLicense({ key, theme, dir: nuxt.options.rootDir })
+-    })
++    // const theme = pkg.theme || { env: 'NUXT_UI_PRO_LICENSE', link: 'https://ui.nuxt.com/pro' }
++    // const key = process.env[theme.env] || (nuxt.options as any).uiPro?.license
++    // if (nuxt.options.dev || nuxt.options._prepare || nuxt.options.test) {
++    //   if (nuxt.options.dev && !key) {
++    //     consola.box(
++    //       colors.greenBright('Nuxt UI Pro') + '\n\n' +
++    //       `Missing \`${theme.env}\` env variable, please add it to your \`.env\`.` + '\n\n' +
++    //       colors.blueBright(`Purchase Nuxt UI Pro at ${theme.link} to build your app in production.`)
++    //     )
++    //   }
++    //   return
++    // }
++    // nuxt.hook('build:before', async () => {
++    //   await validateLicense({ key, theme, dir: nuxt.options.rootDir })
++    // })
+   }
+ })
