@@ -77,7 +77,7 @@ pricing:
 #        - Помощь с интеграцией в Telegram
     - title: Стандартный
       description: Вариант для небольшого бизнеса
-      price: 3000₽
+      price: 5000₽
       cycle: /мес
 #      highlight: true
 #      scale: true
