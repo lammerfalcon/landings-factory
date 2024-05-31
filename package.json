@@ -25,6 +25,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^0.3.12",
     "eslint": "^9.2.0",
+    "nuxt-aos": "^1.2.4",
     "vue-tsc": "^2.0.17"
   }
 }

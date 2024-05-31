@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   extends: ['@nuxt/ui-pro'],
-  modules: ['@nuxt/content', '@nuxt/eslint', '@nuxt/ui', '@nuxt/fonts', '@nuxt/image'],
+  modules: ['@nuxt/content', '@nuxt/eslint', '@nuxt/ui', '@nuxt/fonts', '@nuxt/image', 'nuxt-aos'],
   ui: {
     icons: ['heroicons', 'simple-icons'],
     safelistColors: ['heliotrope', 'fuego', 'lavender-rose', 'shakespeare', 'river-bed']
@@ -14,7 +14,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      adminUrl: process.env.NUXT_ADMIN_URL
+      adminUrl: process.env.NUXT_ADMIN_URL,
+      baseApiUrl: process.env.NUXT_BASE_API_URL
     }
   },
   eslint: {

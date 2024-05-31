@@ -1,11 +1,26 @@
 title: Магазин в Telegram
 description: Создайте свой магазин в Telegram всего за несколько минут!
 hero:
-  title: Откройте свой магазин в Telegram легко и быстро!
-  description: Интегрируйте и управляйте своими товарами прямо из Telegram без сложностей.
+  title: Ваш Telegram магазин готов к продажам!
+  description: Просто добавьте нашего бота в группу и создайте товары в личном кабинете. Начните продавать прямо сейчас, обеспечивая вашим клиентам удобство покупок в мессенджере.
+  links:
+    - label: Посмотреть пример магазина
+      icon: i-simple-icons-telegram
+      size: xl
+      color: blue
+      to: https://t.me/+V13BQCr_phZlM2Iy
+      target: _blank
+    - label: Сразу в личный кабинет!
+      size: xl
+      color: blue
+      variant: outline
+      to: https://panel-go-store.space
+      target: _blank
   image:
-    - /hero.png
-    - /preview.png
+    - /4.png
+    - /3.png
+    - /2.png
+    - /1.png
 
 #logos:
 #  title: Trusted by the world's best
@@ -16,7 +31,7 @@ hero:
 #    - i-simple-icons-vercel
 #    - i-simple-icons-cloudflare
 features:
-  headline: Features
+  headline: Возможности
   title: Почему наше мини-приложение?
   description: Наше мини-приложение позволяет вам легко выставлять товары, управлять заказами и общаться с клиентами, не покидая Telegram. Всё, что нужно для успешной торговли, теперь в одном удобном приложении!
   items:
@@ -151,7 +166,7 @@ cta:
       size: xl
       color: blue
       variant: outline
-      to: https://bp-manager.ru/panel
+      to: https://panel-go-store.space
       target: _blank
 faq:
   title: Frequently asked questions

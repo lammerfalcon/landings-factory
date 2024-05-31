@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { type InferType, object, string } from 'yup'
+import type { FormSubmitEvent } from '#ui/types'
+import type { Notification } from '#ui/types/notification'
 
 const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
-
+const { public: { baseApiUrl } } = useRuntimeConfig()
 useSeoMeta({
   title: page.value.title,
   ogTitle: page.value.title,
@@ -14,33 +16,73 @@ const loading = ref(false)
 const RequiredText = 'Поле обязательно для заполнения'
 const schema = object({
   email: string().email('Введите корректный адрес эл. почты').required(RequiredText),
-  tgUsername: string().required(RequiredText),
-  feedback: string().required(RequiredText)
+  tg_username: string().required(RequiredText),
+  text: string().required(RequiredText)
+})
+
+const carouselRef = ref()
+
+onMounted(() => {
+  setInterval(() => {
+    if (!carouselRef.value) return
+
+    if (carouselRef.value.page === carouselRef.value.pages) {
+      return carouselRef.value.select(0)
+    }
+
+    carouselRef.value.next()
+  }, 2000)
 })
 
 type Schema = InferType<typeof schema>
 
 const state = reactive({
   email: undefined,
-  tgUsername: undefined,
-  feedback: undefined
+  tg_username: undefined,
+  text: undefined
 })
 
 const pricingPlansCount = computed(() => {
   return page.value.pricing.plans.length
 })
 
-function onSubmit() {
-  loading.value = true
+export interface ISuccessResponseFeedback {
+  entities: any[]
+  meta: any[]
+  message: string
+}
+export interface Errors {
+  [key: string]: string
+}
 
-  setTimeout(() => {
-    toast.add({
-      title: 'Отправили!',
-      description: 'Спасибо за ваше сообщение. Мы обязательно ответим на него.'
+export interface Data {}
+
+export interface IErrorResponseFeedback {
+  message: string
+  errors: Errors
+  data: Data
+}
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  try {
+    loading.value = true
+    const { data, error } = await useFetch<ISuccessResponseFeedback | IErrorResponseFeedback>('/feedback', {
+      baseURL: baseApiUrl,
+      method: 'POST',
+      body: event.data,
+      watch: false
     })
-
+    const toastText: Partial<Notification> = {
+      title: error.value ? 'Ошибка' : 'Фидбэк получили!',
+      description: error?.value?.data?.message || data?.value?.message
+    }
+    toast.add({
+      ...toastText
+    })
+  } catch (e) {
+    console.error(e)
+  } finally {
     loading.value = false
-  }, 1000)
+  }
 }
 </script>
 
@@ -80,12 +122,36 @@ function onSubmit() {
         </UBadge>
       </template>
 
-      <NuxtImg
-        v-for="heroImage in page.hero.image"
-        :src="heroImage"
-        alt="Hero image"
-        class="w-full h-full object-cover"
-      />
+      <div class="grid-cols-2 hidden md:grid">
+        <NuxtImg
+          v-for="heroImage in page.hero.image"
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-center"
+          :src="heroImage"
+          alt="Hero image"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <UCarousel
+        ref="carouselRef"
+        v-slot="{ item }"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+        :items="page.hero.image"
+        :ui="{
+          item: 'basis-full',
+          container: 'rounded-lg'
+        }"
+        indicators
+        class="w-full mx-auto block md:hidden"
+      >
+        <NuxtImg
+          format="webp"
+          :src="item"
+          class="w-full"
+          draggable="false"
+        />
+      </UCarousel>
       <!--      <ImagePlaceholder/> -->
 
       <ULandingLogos
@@ -103,6 +169,8 @@ function onSubmit() {
     </ULandingHero>
 
     <ULandingSection
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-center"
       :title="page.features.title"
       :description="page.features.description"
       :headline="page.features.headline"
@@ -121,14 +189,19 @@ function onSubmit() {
 
     <ULandingSection
       id="CTA"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-center"
       class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 h-full"
     >
       <ULandingCTA
+        :ui="{ links: 'md:flex-row flex-col gap-y-4' }"
         v-bind="page.cta"
         :card="false"
       />
     </ULandingSection>
     <ULandingSection
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
       :title="page.pricing.title"
       :description="page.pricing.description"
       :headline="page.pricing.headline"
@@ -149,6 +222,8 @@ function onSubmit() {
 
     <ULandingSection
       v-if="page.testimonials"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-center"
       :headline="page.testimonials.headline"
       :title="page.testimonials.title"
       :description="page.testimonials.description"
@@ -168,6 +243,8 @@ function onSubmit() {
     </ULandingSection>
     <ULandingSection
       id="feedback"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-center"
       headline="Обратная связь"
       title="Есть вопросы? Напишите нам!"
       description="Мы с радостью ответим на все ваши вопросы."
@@ -199,7 +276,7 @@ function onSubmit() {
                 name="tgUsername"
               >
                 <UInput
-                  v-model="state.tgUsername"
+                  v-model="state.tg_username"
                   size="xl"
                   type="text"
                 />
@@ -210,13 +287,14 @@ function onSubmit() {
               name="feedback"
             >
               <UTextarea
-                v-model="state.feedback"
+                v-model="state.text"
                 size="xl"
                 type="text"
               />
             </UFormGroup>
 
             <UButton
+              :loading="loading"
               type="submit"
             >
               Отправить 🚀
