@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { SpeedInsights } from '@vercel/speed-insights/nuxt'
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -19,6 +21,7 @@ useSeoMeta({
 </script>
 
 <template>
+  <SpeedInsights />
   <AppHeader />
 
   <UMain>
