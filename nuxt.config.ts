@@ -27,7 +27,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       adminUrl: process.env.NUXT_ADMIN_URL,
-      baseApiUrl: process.env.NUXT_BASE_API_URL
+      baseApiUrl: process.env.NUXT_BASE_API_URL,
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL
     }
   },
   eslint: {
