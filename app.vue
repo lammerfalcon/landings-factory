@@ -30,7 +30,7 @@ useSeoMeta({
 })
 useSchemaOrg([
   defineOrganization({
-    name: 'Go-store'
+    name: 'Go-store.space'
   }),
   defineWebSite({
     name: 'Магазин в телеграм уже создан! Добавь товар и начни продавать!'
