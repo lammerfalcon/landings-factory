@@ -1,10 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   extends: ['@nuxt/ui-pro'],
-  modules: ['@nuxt/content', '@nuxt/eslint', '@nuxt/ui', '@nuxt/fonts', '@nuxt/image', 'nuxt-aos'],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/eslint',
+    '@nuxt/ui',
+    '@nuxt/fonts',
+    '@nuxt/image',
+    'nuxt-aos',
+    'nuxt-og-image',
+    '@nuxtjs/seo'
+  ],
   ui: {
     icons: ['heroicons', 'simple-icons'],
     safelistColors: ['heliotrope', 'fuego', 'lavender-rose', 'shakespeare', 'river-bed']
+  },
+  site: {
+    url: 'https://go-store.space'
   },
   devtools: {
     enabled: true

@@ -110,7 +110,10 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
       <div class="grid-cols-2 hidden md:grid">
         <NuxtImg
-          v-for="heroImage in page.hero.image"
+          v-for="(heroImage, index) in page.hero.image"
+          :key="index"
+          format="webp"
+          loading="lazy"
           data-aos="fade-up"
           data-aos-anchor-placement="top-center"
           :src="heroImage"

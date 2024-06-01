@@ -17,10 +17,10 @@ hero:
       to: https://panel-go-store.space
       target: _blank
   image:
-    - /4.png
-    - /3.png
-    - /2.png
-    - /1.png
+    - /preview-channel.png
+    - /preview-app.png
+    - /preview-order.png
+    - /preview-status.png
 
 #logos:
 #  title: Trusted by the world's best
@@ -82,19 +82,25 @@ pricing:
 #      highlight: true
 #      scale: true
 #      align: center
-      discount: 0₽
+      discount: 3000₽
+      badge:
+        label: 14 дней бесплатно
       button:
         label: Начать сейчас
+        to: https://panel-go-store.space
       features:
+        - Пробный период 14 дней
         - Неограниченное количество товаров
         - Неограниченное количество заказов
-        - Уведомления о заказах
+        - Уведомления в Telegram
+        - Интеграция с платежными агрегаторами (по заявке)
         - Поддержка
         - Помощь с интеграцией в Telegram
         - Статистика продаж (в разработке)
         - Категории товаров (в разработке)
         - Запуск акций (в разработке)
-    - title: Премиальный
+        - AI Помощник (в разработке)
+    - title: Бизнес+
       description: Индивидуальный подход к вашему бизнесу, разработка под ваши нужды
       price: Расчитывается индивидуально
 #      align: top
