@@ -11,7 +11,7 @@ const links = computed(() => [{
   label: 'Тарифы',
   to: '#pricing',
   icon: 'i-heroicons-credit-card',
-  active: activeHeadings.value.includes('pricing') && !activeHeadings.value.includes('faq')
+  active: activeHeadings.value.includes('pricing') && !activeHeadings.value.includes('feedback')
 },
 //   {
 //   label: 'Узнать о запуске проекта',
@@ -23,7 +23,7 @@ const links = computed(() => [{
   label: 'Обратная связь',
   to: '#feedback',
   icon: 'i-heroicons-question-mark-circle',
-  active: activeHeadings.value.includes('feedback') && !activeHeadings.value.includes('pricing')
+  active: activeHeadings.value.includes('feedback')
 }
 ])
 
