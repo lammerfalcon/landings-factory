@@ -3,6 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 
 const { public: { siteUrl } } = useRuntimeConfig()
 useHead({
+  title: 'Telegram магазин для вашего бизнеса',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
