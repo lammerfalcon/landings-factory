@@ -26,6 +26,7 @@ useSeoMeta({
   ogLocale: 'ru-RU',
   ogImage: 'https://go-store.space/img.png',
   ogUrl: siteUrl,
+  ogSiteName: 'go-store.space',
   twitterImage: 'https://go-store.space/img.png',
   twitterCard: 'summary_large_image'
 })
