@@ -107,6 +107,7 @@ pricing:
       button:
         label: Запросить консультацию
         color: gray
+        to: '/#feedback'
       features:
         - Все возможности Standard
         - Индивидуальная разработка под бизнес
