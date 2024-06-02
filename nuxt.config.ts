@@ -18,6 +18,9 @@ export default defineNuxtConfig({
   site: {
     url: 'https://go-store.space'
   },
+  seo: {
+    fallbackTitle: false
+  },
   devtools: {
     enabled: true
   },

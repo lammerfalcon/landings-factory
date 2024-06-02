@@ -5,9 +5,11 @@ import type { Notification } from '#ui/types/notification'
 
 const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
 const { public: { baseApiUrl } } = useRuntimeConfig()
+definePageMeta({
+  title: 'Telegram магазин для вашего бизнеса'
+})
 useHead({
   title: 'Telegram магазин для вашего бизнеса'
-
 })
 useSeoMeta({
   title: page.value.title,
