@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     safelistColors: ['heliotrope', 'fuego', 'lavender-rose', 'shakespeare', 'river-bed']
   },
   site: {
-    url: 'https://go-store.space'
+    url: 'https://go-store.space',
+    name: 'Go-Store'
   },
   seo: {
     fallbackTitle: false
