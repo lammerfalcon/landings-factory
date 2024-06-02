@@ -23,6 +23,7 @@ useHead({
 })
 
 useSeoMeta({
+  title: 'Telegram магазин для вашего бизнеса',
   ogType: 'website',
   ogLocale: 'ru-RU',
   ogImage: 'https://go-store.space/img.png',
