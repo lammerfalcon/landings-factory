@@ -22,7 +22,7 @@ const toast = useToast()
 const loading = ref(false)
 const RequiredText = 'Поле обязательно для заполнения'
 const schema = object({
-  email: string().email('Введите корректный адрес эл. почты').required(RequiredText),
+  email: string().email('Введите корректный адрес эл. почты'),
   tg_username: string().required(RequiredText),
   text: string().required(RequiredText)
 })
@@ -71,6 +71,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     toast.add({
       ...toastText
     })
+    state.email = ''
+    state.text = ''
+    state.tg_username = ''
   } catch (e) {
     console.error(e)
   } finally {
@@ -237,12 +240,10 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       </UPageColumns>
     </ULandingSection>
     <ULandingSection
-
       data-aos="fade-up"
       data-aos-anchor-placement="top-center"
-      headline="Обратная связь"
-      title="Есть вопросы? Напишите нам!"
-      description="Мы с радостью ответим на все ваши вопросы."
+      :title="page.feedback.title"
+      :description="page.feedback.description"
     >
       <template #links>
         <div class="md:w-1/2">
@@ -255,8 +256,20 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
           >
             <div class="flex flex-col md:flex-row gap-4">
               <UFormGroup
+                required
                 class="w-full"
-                label="Почта"
+                :label="page.feedback.form.tgUsername"
+                name="tg_username"
+              >
+                <UInput
+                  v-model="state.tg_username"
+                  size="xl"
+                  type="text"
+                />
+              </UFormGroup>
+              <UFormGroup
+                class="w-full"
+                :label="page.feedback.form.email"
                 name="email"
               >
                 <UInput
@@ -265,22 +278,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                   size="xl"
                 />
               </UFormGroup>
-
-              <UFormGroup
-                class="w-full"
-                label="Имя телеграм аккаунта"
-                name="tgUsername"
-              >
-                <UInput
-                  v-model="state.tg_username"
-                  size="xl"
-                  type="text"
-                />
-              </UFormGroup>
             </div>
             <UFormGroup
-              label="Напишите нам всё, что считаете важным! Мы обязательно ответим на ваше сообщение."
-              name="feedback"
+              required
+              :label="page.feedback.form.feedback"
+              name="text"
             >
               <UTextarea
                 v-model="state.text"
@@ -293,7 +295,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
               :loading="loading"
               type="submit"
             >
-              Отправить 🚀
+              {{ page.feedback.form.button }}
             </UButton>
           </UForm>
         </div>

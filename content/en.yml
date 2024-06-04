@@ -1,0 +1,109 @@
+title: Telegram store for your business
+description: Create your store in Telegram in just a few minutes!
+hero:
+  title: Your Telegram store is ready for sales!
+  description: Just add our bot to a group and create products in your personal account. Start selling right now, providing your customers with the convenience of shopping in the messenger.
+  links:
+    - label: View store example
+      icon: i-simple-icons-telegram
+      size: xl
+      color: blue
+      to: https://t.me/+V13BQCr_phZlM2Iy
+      target: _blank
+    - label: Go straight to the personal account!
+      size: xl
+      color: blue
+      variant: outline
+      to: https://panel-go-store.space
+      target: _blank
+  image:
+    - /preview-channel.png
+    - /preview-app.png
+    - /preview-order.png
+    - /preview-status.png
+
+features:
+  title: Why our mini-application?
+  description: Our mini-application allows you to easily list products, manage orders, and communicate with customers without leaving Telegram. Everything you need for successful trading is now in one convenient application!
+  items:
+    - title: Quick start
+      description: The bot is already ready to work, you just need to add it to your channel or group and start selling.
+      icon: i-heroicons-rocket-launch
+    - title: Reliability
+      description: Our application ensures stable and reliable operation, guaranteeing uninterrupted sales.
+      icon: i-heroicons-cog
+    - title: Analytics and reports
+      description: Get detailed reports on sales and customer behavior to make informed decisions.
+      icon: i-heroicons-chart-bar
+    - title: Affordable price
+      description: High quality at an affordable price. Our application is suitable for any business.
+      icon: i-heroicons-gift
+    - title: Support
+      description: Our team is always ready to help you with the setup and answer your questions.
+      icon: i-heroicons-check
+    - title: Scalability
+      description: Automate processes and increase the number of products and orders without additional costs.
+      icon: i-heroicons-currency-dollar
+
+pricing:
+  title: Choose the right plan
+  description: You can start with a free plan and switch to any other at any time.
+  plans:
+    - title: Standard
+      description: Option for small businesses
+      price: 5000₽
+      cycle: /month
+      discount: 3000₽
+      badge:
+        label: 14 days free
+      button:
+        label: Start now
+        to: https://panel-go-store.space
+      features:
+        - 14-day trial period
+        - Unlimited number of products
+        - Unlimited number of orders
+        - Notifications in Telegram
+        - Integration with payment aggregators (upon request)
+        - Support
+        - Help with integration into Telegram
+        - Sales statistics (in development)
+        - Product categories (in development)
+        - Launching promotions (in development)
+        - AI Assistant (in development)
+    - title: Business+
+      description: Individual approach to your business, development according to your needs
+      price: Calculated individually
+      button:
+        label: Request consultation
+        color: gray
+        to: '/#feedback'
+      features:
+        - All Standard features
+        - Custom development for business
+
+cta:
+  title: See how it works!
+  description: Go through the buyer's journey from selecting a product to placing an order or create your own store and start selling.
+  links:
+    - label: What the buyer sees
+      icon: i-simple-icons-telegram
+      size: xl
+      color: blue
+      to: https://t.me/+V13BQCr_phZlM2Iy
+      target: _blank
+    - label: Create your store
+      size: xl
+      color: blue
+      variant: outline
+      to: https://panel-go-store.space
+      target: _blank
+
+feedback:
+  title: Have questions? Contact us!
+  description: We are happy to answer all your questions.
+  form:
+    email: Email
+    tgUsername: Telegram username
+    feedback: Write to us everything you consider important! We will definitely respond to your message.
+    button: Send 🚀
