@@ -5,7 +5,7 @@
 <template>
   <ULandingSection>
     <ContentDoc
-      class="prose lg:prose-xl"
+      class="prose dark:prose-invert"
       path="/license"
     />
   </ULandingSection>
