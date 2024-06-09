@@ -10,7 +10,25 @@ export default defineNuxtConfig({
     'nuxt-aos',
     'nuxt-og-image',
     '@nuxtjs/seo'
+    // '@nuxtjs/i18n'
   ],
+  // i18n: {
+  //   locales: [
+  //     {
+  //       code: 'en',
+  //       name: 'English'
+  //     },
+  //     {
+  //       code: 'ru',
+  //       name: 'Русский'
+  //     }
+  //   ],
+  //   detectBrowserLanguage: {
+  //     useCookie: true,
+  //     cookieKey: 'i18n_redirected',
+  //     redirectOn: 'root' // recommended
+  //   }
+  // },
   ui: {
     icons: ['heroicons', 'simple-icons'],
     safelistColors: ['heliotrope', 'fuego', 'lavender-rose', 'shakespeare', 'river-bed']

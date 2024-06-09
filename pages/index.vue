@@ -206,7 +206,6 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     >
       <UPricingGrid
         id="pricing"
-
         class="scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
         :class="[pricingPlansCount >= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2']"
       >

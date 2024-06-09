@@ -2,9 +2,7 @@
 import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 
 const { public: { siteUrl } } = useRuntimeConfig()
-definePageMeta({
-  title: 'Telegram магазин для вашего бизнеса'
-})
+
 useHead({
   title: 'Telegram магазин для вашего бизнеса',
   meta: [

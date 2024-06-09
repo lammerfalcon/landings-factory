@@ -90,10 +90,16 @@
 
     <template #left>
       <p class="text-gray-500 dark:text-gray-400 text-sm">
-        Copyright © {{ new Date().getFullYear() }}. All rights reserved.
+        © {{ new Date().getFullYear() }}. Все права защищены.
       </p>
     </template>
-
+    <template #center>
+      <ULink
+        target="_blank"
+        to="/license"
+        class="underline hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-100 ease-in-out"
+      >Лицензия</ULink>
+    </template>
     <template #right>
       <UColorModeButton size="sm" />
 

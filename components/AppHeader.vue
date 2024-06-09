@@ -1,15 +1,17 @@
 <script setup lang="ts">
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
+// const { locale, locales } = useI18n()
+// const globalPage = useState('page')
 
 const links = computed(() => [{
   label: 'Возможнсти',
-  to: '#features',
+  to: '/#features',
   icon: 'i-heroicons-cube-transparent',
   active: activeHeadings.value.includes('features') && !activeHeadings.value.includes('pricing')
 }, {
   label: 'Тарифы',
-  to: '#pricing',
+  to: '/#pricing',
   icon: 'i-heroicons-credit-card',
   active: activeHeadings.value.includes('pricing') && !activeHeadings.value.includes('feedback')
 },
@@ -21,7 +23,7 @@ const links = computed(() => [{
 // },
 {
   label: 'Обратная связь',
-  to: '#feedback',
+  to: '/#feedback',
   icon: 'i-heroicons-question-mark-circle',
   active: activeHeadings.value.includes('feedback')
 }
@@ -50,6 +52,14 @@ const { public: { adminUrl } } = useRuntimeConfig()
     </template>
 
     <template #right>
+      <!--      <USelect -->
+      <!--        v-model="locale" -->
+      <!--        icon="i-heroicons-globe-alt" -->
+      <!--        variant="none" -->
+      <!--        :options="locales" -->
+      <!--        option-attribute="code" -->
+      <!--        value-attribute="code" -->
+      <!--      /> -->
       <UButton
         label="Демонстрация сервиса"
         color="white"
