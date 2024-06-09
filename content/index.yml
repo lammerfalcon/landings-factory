@@ -17,10 +17,10 @@ hero:
       to: https://panel-go-store.space
       target: _blank
   image:
-    - /preview-channel.png
-    - /preview-app.png
-    - /preview-order.png
-    - /preview-status.png
+    - /shop_preview_1.png
+    - /shop_preview_2.png
+    - /shop_preview_3.png
+    - /shop_preview_4.png
 
 
 features:
