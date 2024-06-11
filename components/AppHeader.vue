@@ -5,7 +5,7 @@ const { activeHeadings, updateHeadings } = useScrollspy()
 // const globalPage = useState('page')
 
 const links = computed(() => [{
-  label: 'Возможнсти',
+  label: 'Возможности',
   to: '/#features',
   icon: 'i-heroicons-cube-transparent',
   active: activeHeadings.value.includes('features') && !activeHeadings.value.includes('pricing')
