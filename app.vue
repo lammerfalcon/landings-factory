@@ -27,10 +27,10 @@ useSeoMeta({
   title: 'Telegram магазин для вашего бизнеса',
   ogType: 'website',
   ogLocale: 'ru-RU',
-  ogImage: 'https://go-store.space/img.png',
+  ogImage: 'https://go-store.space/og_img.png',
   ogUrl: siteUrl,
   ogSiteName: 'go-store.space',
-  twitterImage: 'https://go-store.space/img.png',
+  twitterImage: 'https://go-store.space/og_img.png',
   twitterCard: 'summary_large_image'
 })
 useSchemaOrg([
