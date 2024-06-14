@@ -104,7 +104,7 @@
       <UColorModeButton size="sm" />
 
       <UButton
-        to="https://t.me/BreadOfMySoulBot"
+        to="https://t.me/gostore_space"
         target="_blank"
         icon="i-simple-icons-telegram"
         aria-label="GitHub"

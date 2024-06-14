@@ -8,7 +8,7 @@ hero:
       icon: i-simple-icons-telegram
       size: xl
       color: blue
-      to: https://t.me/+V13BQCr_phZlM2Iy
+      to: https://t.me/gostore_space
       target: _blank
     - label: Go straight to the personal account!
       size: xl
@@ -90,7 +90,7 @@ cta:
       icon: i-simple-icons-telegram
       size: xl
       color: blue
-      to: https://t.me/+V13BQCr_phZlM2Iy
+      to: https://t.me/gostore_space
       target: _blank
     - label: Create your store
       size: xl
